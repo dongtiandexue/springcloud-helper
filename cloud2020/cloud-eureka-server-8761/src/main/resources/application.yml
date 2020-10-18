@@ -1,0 +1,22 @@
+server:
+  port: 8761
+
+# 单机版
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:
+#    registerWithEureka: false
+#    fetchRegistry: false
+#    serviceUrl:
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+# 集群版
+eureka:
+  instance:
+    # 单机 hostname: localhost #eureka注册中心实例名称
+    hostname: eureka8761.com # 集群
+  client:
+    register-with-eureka: false     #false 由于该应用为注册中心，所以设置为false,代表不向注册中心注册自己。
+    service-url:
+      defaultZone: http://eureka8762.com:8762/eureka/,http://eureka8763.com:8763/eureka/
